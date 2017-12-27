@@ -27,6 +27,7 @@ const animateSnake=function() {
 
 const stopAnimation= function(){
   clearInterval(animator);
+  showRestartButton();
 };
 
 
@@ -43,13 +44,13 @@ const changeSnakeDirection=function(event) {
       break;
     default:
   }
-}
+};
 
 const addKeyListener=function() {
   let grid=document.getElementById("keys");
   grid.onkeyup=changeSnakeDirection;
   grid.focus();
-}
+};
 
 const createSnake=function() {
   let tail=new Position(12,10,"east");
@@ -59,11 +60,14 @@ const createSnake=function() {
   let head=tail.next().next();
 
   snake=new Snake(head,body);
-}
+};
 
 const createFood=function(numberOfRows,numberOfCols) {
   food=generateRandomPosition(numberOfCols,numberOfRows);
-}
+};
+const reloadGame=function(){
+  location.reload(true);
+};
 
 const startGame=function() {
   createSnake();
@@ -73,6 +77,6 @@ const startGame=function() {
   drawFood(food);
   addKeyListener();
   animator=setInterval(animateSnake,140);
-}
+};
 
 window.onload=startGame;
