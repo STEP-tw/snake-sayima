@@ -15,15 +15,20 @@ const animateSnake=function() {
   if(snake.didEatItself()){
     stopAnimation();
   }
+  if(snake.didItHitViewportEdge(numberOfRows,numberOfCols)){
+    stopAnimation();
+  }
   if(head.isSameCoordAs(food)) {
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
   }
-}
+};
+
 const stopAnimation= function(){
   clearInterval(animator);
 };
+
 
 const changeSnakeDirection=function(event) {
   switch (event.code) {

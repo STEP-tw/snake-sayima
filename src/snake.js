@@ -26,5 +26,8 @@ Snake.prototype={
   },
   didEatItself : function(){
     return this.body.some(this.head.isSameCoordAs,this.head);
+  },
+  didItHitViewportEdge : function(length,breadth){
+    return this.head.x>=length || this.head.y >=breadth || this.head.x <= 0 || this.head.y <= 0;
   }
 }
