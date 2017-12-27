@@ -11,6 +11,15 @@ const drawGrids=function(numberOfRows,numberOfCols) {
   }
 };
 
+const showScore = function(score){
+  let p=document.getElementById('score');
+  if(score>10)
+  p.removeChild(p.childNodes[0]);
+  let scoreText=document.createTextNode(score);
+  p.appendChild(scoreText);
+  return;
+};
+
 const showRestartButton=function(){
   let p=document.getElementById('restart');
   let restart=document.createElement('BUTTON');

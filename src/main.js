@@ -3,6 +3,7 @@ let food=undefined;
 let numberOfRows=60;
 let numberOfCols=120;
 let animator=undefined;
+let score=0;
 
 const animateSnake=function() {
   let oldHead=snake.getHead();
@@ -18,10 +19,13 @@ const animateSnake=function() {
     stopAnimation();
   }
   if(head.isSameCoordAs(food)) {
+    score+=10;
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
+    showScore(score);
   }
+
 };
 
 const stopAnimation= function(){
