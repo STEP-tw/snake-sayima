@@ -1,7 +1,7 @@
 const Snake=function(head,body) {
   this.head=head;
   this.body=body;
-}
+};
 
 Snake.prototype={
   getBody:function() {
@@ -28,6 +28,7 @@ Snake.prototype={
     return this.body.some(this.head.isSameCoordAs,this.head);
   },
   didItHitViewportEdge : function(length,breadth){
-    return this.head.x>= breadth-1 || this.head.y >=length-1 || this.head.x <= 0 || this.head.y <= 0;
+    return this.head.x>= breadth-1 || this.head.y >=length-1
+    || this.head.x <= 0 || this.head.y <= 0;
   }
-}
+};
