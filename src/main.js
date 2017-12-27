@@ -12,12 +12,18 @@ const animateSnake=function() {
   paintBody(oldHead);
   unpaintSnake(oldTail);
   paintHead(head);
+  if(snake.didEatItself()){
+    stopAnimation();
+  }
   if(head.isSameCoordAs(food)) {
     snake.grow();
     createFood(numberOfRows,numberOfCols);
     drawFood(food);
   }
 }
+const stopAnimation= function(){
+  clearInterval(animator);
+};
 
 const changeSnakeDirection=function(event) {
   switch (event.code) {
